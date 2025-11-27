@@ -1,7 +1,7 @@
 fastapi
-uvicorn
+uvicorn[standard]
 pydantic
 typing_extensions
 starlette
 anyio
-
+openai
