@@ -11,7 +11,11 @@ load_dotenv()
 
 openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
-app = FastAPI(title="CodeAssistX Advanced MVP")
+app = FastAPI()
+
+@app.post("/analyze")
+def analyze():
+    return {"ok": True}
 
 from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
