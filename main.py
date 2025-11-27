@@ -22,9 +22,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/analyze")
-def analyze():
-    return {"ok": True}
+#@app.post("/analyze")
+#def analyze():
+#    return {"ok": True}
 
 class CodeInput(BaseModel):
     code: str
