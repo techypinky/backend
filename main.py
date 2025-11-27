@@ -1,5 +1,6 @@
 # codeassistx_mvp_advanced.py
 import os
+import ast
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
