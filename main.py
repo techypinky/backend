@@ -1,8 +1,9 @@
 # codeassistx_mvp_advanced.py
 import os
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
 from dotenv import load_dotenv
-from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Dict, Any
 import ast, traceback, json, subprocess, uuid, os
@@ -13,11 +14,6 @@ openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 app = FastAPI()
 
-@app.post("/analyze")
-def analyze():
-    return {"ok": True}
-
-from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -25,6 +21,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.post("/analyze")
+def analyze():
+    return {"ok": True}
 
 class CodeInput(BaseModel):
     code: str
